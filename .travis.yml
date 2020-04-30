@@ -13,7 +13,7 @@ addon:
 before_install:
 - rm -rf $HOME/.m2/repository/org/apache/activemq/artemis-*
 - git clone https://github.com/netty/netty
-- cd netty && mvn clean install
+- cd netty && mvn clean install > dev/null
 - pwd
 
 
