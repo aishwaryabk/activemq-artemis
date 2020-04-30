@@ -14,7 +14,7 @@ before_install:
 - rm -rf $HOME/.m2/repository/org/apache/activemq/artemis-*
 - git clone https://github.com/netty/netty
 - cd netty
-- travis_wait 40 mvn clean install > /dev/null
+- travis_wait 60 sleep 60m & mvn clean install &> /dev/null 
 - pwd
 
 
