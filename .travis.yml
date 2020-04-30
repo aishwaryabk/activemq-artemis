@@ -15,15 +15,16 @@ before_install:
 - git clone https://github.com/netty/netty
 - cd netty
 - travis_wait 60 sleep 60m & mvn clean install &> /dev/null 
-- pwd
-
+- cd .. && git clone https://github.com/netty/netty-tcnative.git
+- cd netty-tcnative
+- travis_wait 60 sleep 60m & mvn clean install &> /dev/null 
 
 # use 'install' so smoke-tests will work
 # use '-Pextra-tests' to ensure extra-tests compiles even though they won't actually run
 # By setting anything to org.apache.activemq.artemis.core.io.aio.AIOSequentialFileFactory.DISABLED we are disabling libaio loading on the testsuite
 script: 
 - set -e
-- mvn -Dorg.apache.activemq.artemis.core.io.aio.AIOSequentialFileFactory.DISABLED=AnythingNotNull -Pfast-tests -Pextra-tests -Ptests-CI -B install -q
+- mvn -Dorg.apache.activemq.artemis.core.io.aio.AIOSequentialFileFactory.DISABLED=AnythingNotNull -Pfast-tests -Pextra-tests -Ptests-CI -B install -q  
 - cd examples
 - mvn install -Prelease install -B -q
 
