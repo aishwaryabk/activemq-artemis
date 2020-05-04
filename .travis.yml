@@ -16,6 +16,8 @@ before_install:
 # By setting anything to org.apache.activemq.artemis.core.io.aio.AIOSequentialFileFactory.DISABLED we are disabling libaio loading on the testsuite
 script: 
 - set -e
+- export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-ppc64el/ 
+- export PATH=$PATH:$JAVA_HOME
 - travis_wait 60 sleep 60m & mvn -Dorg.apache.activemq.artemis.core.io.aio.AIOSequentialFileFactory.DISABLED=AnythingNotNull -Pfast-tests -Pextra-tests -Ptests-CI -B install -q  
 - cd examples
 - mvn install -Prelease install -B -q
