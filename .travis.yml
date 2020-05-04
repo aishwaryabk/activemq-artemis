@@ -2,20 +2,12 @@ sudo: false
 language: java
 arch: ppc64le
 install: true
-
 jdk:
   - openjdk8
 
-addon:
-  apt: 
-    - maven
-    - libnetty-java/xenial
-    - libnetty-tcnative-java/xenial
-    - libhawtjni-runtime-java/xenial
-    - libnetty-3.9-java/xenial
-
 # clean out Artemis artifacts from the cache
 before_install:
+- apt install -y maven libnetty-java/xenial libnetty-tcnative-java/xenial libhawtjni-runtime-java/xenial libnetty-3.9-java/xenial
 - rm -rf $HOME/.m2/repository/org/apache/activemq/artemis-*
 
 # use 'install' so smoke-tests will work
