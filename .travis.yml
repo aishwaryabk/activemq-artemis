@@ -10,6 +10,7 @@ jdk:
   
 # clean out Artemis artifacts from the cache
 before_install:
+- sudo apt install -y libhawtjni-runtime-java/xenial libnetty-java/xenial libnetty-tcnative-java/xenial libnetty-3.9-java/xenial
 - rm -rf $HOME/.m2/repository/org/apache/activemq/artemis-*
 
 # use 'install' so smoke-tests will work
