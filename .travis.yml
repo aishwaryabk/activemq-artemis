@@ -15,6 +15,7 @@ before_install:
 - tar -xvzf netty-4.1.49.Final.tar.gz
 - wget https://github.com/netty/netty-tcnative/archive/netty-tcnative-parent-2.0.30.Final.tar.gz
 - tar -xvzf netty-tcnative-parent-2.0.30.Final.tar.gz
+- pwd
 - rm -rf $HOME/.m2/repository/org/apache/activemq/artemis-*
 
 # use 'install' so smoke-tests will work
