@@ -8,14 +8,6 @@ jdk:
   
 # clean out Artemis artifacts from the cache
 before_install:
-- sudo apt install -y maven libnetty-java/xenial libnetty-tcnative-java/xenial libhawtjni-runtime-java/xenial libnetty-3.9-java/xenial
-- wget https://github.com/fusesource/hawtjni/archive/hawtjni-project-1.17.tar.gz
-- tar -xvzf hawtjni-project-1.17.tar.gz
-- wget https://github.com/netty/netty/archive/netty-4.1.49.Final.tar.gz
-- tar -xvzf netty-4.1.49.Final.tar.gz
-- wget https://github.com/netty/netty-tcnative/archive/netty-tcnative-parent-2.0.30.Final.tar.gz
-- tar -xvzf netty-tcnative-parent-2.0.30.Final.tar.gz
-- pwd
 - rm -rf $HOME/.m2/repository/org/apache/activemq/artemis-*
 
 # use 'install' so smoke-tests will work
@@ -23,7 +15,7 @@ before_install:
 # By setting anything to org.apache.activemq.artemis.core.io.aio.AIOSequentialFileFactory.DISABLED we are disabling libaio loading on the testsuite
 script: 
 - set -e
-- travis_wait 60 sleep 60m & mvn -Dorg.apache.activemq.artemis.core.io.aio.AIOSequentialFileFactory.DISABLED=AnythingNotNull -Pfast-tests -Pextra-tests -Ptests-CI -B install -q  
+- mvn -Dorg.apache.activemq.artemis.core.io.aio.AIOSequentialFileFactory.DISABLED=AnythingNotNull -Pfast-tests -Pextra-tests -Ptests-CI -B install -q  
 - cd examples
 - mvn install -Prelease install -B -q
 
