@@ -3,6 +3,8 @@ language: java
 os: linux
 arch: ppc64le
 install: true
+addon:
+  apt: maven
 jdk:
   - openjdk8
   
