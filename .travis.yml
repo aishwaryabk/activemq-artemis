@@ -18,6 +18,7 @@ before_install:
 # By setting anything to org.apache.activemq.artemis.core.io.aio.AIOSequentialFileFactory.DISABLED we are disabling libaio loading on the testsuite
 script: 
 - set -e
+- mvn clean install
 - mvn -Dorg.apache.activemq.artemis.core.io.aio.AIOSequentialFileFactory.DISABLED=AnythingNotNull -Pfast-tests -Pextra-tests -Ptests-CI -B install -q  
 - cd examples
 - mvn install -Prelease install -B -q
