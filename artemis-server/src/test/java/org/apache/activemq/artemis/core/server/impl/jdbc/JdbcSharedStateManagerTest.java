@@ -93,7 +93,7 @@ public class JdbcSharedStateManagerTest extends ActiveMQTestBase {
       }
    }
 
-   @Test(timeout = 10000)
+   @Test(timeout = 100000)
    public void shouldStartTwoIfTableNotExist() throws Exception {
       final JdbcSharedStateManager liveSharedStateManager = createSharedStateManager();
       final JdbcSharedStateManager backupSharedStateManager = createSharedStateManager();
